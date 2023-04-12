@@ -1,5 +1,5 @@
 package ru.netology;
-//import io.github.bonigarcia.wdm.WebDriverManager;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
+import io.github.bonigarcia.wdm.WebDriverManager;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SeleniumTest {
@@ -16,9 +16,8 @@ public class SeleniumTest {
 
     @BeforeAll
     static void setUpAll() {
-        //WebDriverManager.chromedriver().setup();
-        System.setProperty("webdriver.chrome.driver", "./driver/chromedriver2.exe");
-    }
+        WebDriverManager.chromedriver().setup();
+     }
 
     @BeforeEach
     void setUp() {
@@ -38,7 +37,7 @@ public class SeleniumTest {
 
     @Test
     void shouldTestV1() {
-        driver.get("http://localhost:7777");
+        driver.get("http://localhost:9999");
 
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Василюк Ольга");
         driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79251809626");
